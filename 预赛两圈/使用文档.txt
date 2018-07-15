@@ -1,0 +1,35 @@
+在兼容智能车黄色开发板时，在define.h开头#define SmartCarPlatform，如果兼容我们自己的板，#define OursPlatform
+
+1.lcd引脚连接：
+	#define  cs      PTC2_OUT       //片选
+	#define  reset   PTB23_OUT       //复位
+	#define  dcx     PTB21_OUT      //地址/数据切换
+	#define  sdi     PTB10_OUT      // SDI  MOSI
+	#define  scl     PTC0_OUT      //时钟
+2.电机引脚连接：
+		 pwm: 	 FTM0,CH4    PTA7
+		 dir:	 	     PTE28
+3.舵机引脚连接： 
+		 pwm:	 FTM1,CH1    PTA9
+4.如果pid不好使（占空比一直65535）
+在 isr.c的 PIT0_IRQHandler()里的
+//测速函数里
+
+将    if(Motor_PID.result<0)
+    {
+      MOTOR_DIR=1;//如果result<0，电机反向
+      Duty_Motor=-Motor_PID.result;
+    }
+    else
+    {
+      MOTOR_DIR=0;
+      Duty_Motor=Motor_PID.result;
+    }
+的MOTOR_DIR=1和MOTOR_DIR=0交换位置，如果还不好使……喊我……
+5.陀螺仪引脚连接：
+	VCC 	3.3V
+	GND
+	SDA	PTD8
+	SCL	PTD4
+	INT	空
+	AD0	GND

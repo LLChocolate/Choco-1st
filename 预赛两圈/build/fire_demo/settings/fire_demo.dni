@@ -1,0 +1,156 @@
+[Stack]
+FillEnabled=0
+OverflowWarningsEnabled=1
+WarningThreshold=90
+SpWarningsEnabled=1
+WarnLogOnly=1
+UseTrigger=1
+TriggerName=main
+LimitSize=0
+ByteLimit=50
+[JLinkDriver]
+TraceBufferSize=0x00010000
+TraceStallIfFIFOFull=0x00000000
+TracePortSize=0x00000004
+CStepIntDis=_ 0
+[SWOTraceHWSettings]
+OverrideDefaultClocks=0
+CpuClock=72000000
+ClockAutoDetect=1
+ClockWanted=4500000
+JtagSpeed=4500000
+Prescaler=16
+TimeStampPrescIndex=0
+TimeStampPrescData=0
+PcSampCYCTAP=1
+PcSampPOSTCNT=15
+PcSampIndex=0
+DataLogMode=0
+ITMportsEnable=0
+ITMportsTermIO=0
+ITMportsLogFile=0
+ITMlogFile=$PROJ_DIR$\ITM.log
+[DebugChecksum]
+Checksum=1253545035
+[Exceptions]
+StopOnUncaught=_ 0
+StopOnThrow=_ 0
+[CallStack]
+ShowArgs=0
+[Disassembly]
+MixedMode=1
+[CodeCoverage]
+Enabled=_ 0
+[watch_formats]
+Fmt0={W}42:Car_Loc	0	4
+[SWOTraceWindow]
+PcSampling=0
+InterruptLogs=0
+ForcedTimeStamps=0
+EventCPI=0
+EventEXC=0
+EventFOLD=0
+EventLSU=0
+EventSLEEP=0
+[PowerLog]
+LogEnabled=0
+GraphEnabled=0
+ShowTimeLog=1
+ShowTimeSum=0
+Title_0=I0
+Symbol_0=0 4 1
+LiveEnabled=0
+LiveFile=PowerLogLive.log
+[DataLog]
+LogEnabled=0
+SumEnabled=0
+GraphEnabled=0
+ShowTimeLog=1
+ShowTimeSum=1
+[EventLog]
+LogEnabled=0
+SumEnabled=0
+GraphEnabled=0
+ShowTimeLog=1
+ShowTimeSum=1
+SumSortOrder=0
+[InterruptLog]
+LogEnabled=0
+SumEnabled=0
+GraphEnabled=0
+ShowTimeLog=1
+ShowTimeSum=1
+SumSortOrder=0
+[Log file]
+LoggingEnabled=_ 0
+LogFile=_ ""
+Category=_ 0
+[TermIOLog]
+LoggingEnabled=_ 0
+LogFile=_ ""
+[CallStackLog]
+Enabled=0
+[PowerProbe]
+Frequency=10000
+Probe0=I0
+ProbeSetup0=2 1 1 2 0 0
+[DriverProfiling]
+Enabled=0
+Mode=1
+Graph=0
+Symbiont=0
+Exclusions=
+[Disassemble mode]
+mode=0
+[Breakpoints2]
+Bp0=_ 0 "EMUL_CODE" "{$PROJ_DIR$\..\..\..\NRF模块测试（主）}.169.13" 0 0 1 "" 0 "" 0
+Bp1=_ 0 "EMUL_CODE" "{$PROJ_DIR$\..\..\..\NRF模块测试（从）}.953.5" 0 0 1 "" 0 "" 0
+Bp2=_ 0 "EMUL_CODE" "{$PROJ_DIR$\..\..\..\NRF模块测试（从）}.968.10" 0 0 1 "" 0 "" 0
+Bp3=_ 0 "EMUL_CODE" "{$PROJ_DIR$\..\..\..\NRF模块测试（从）}.968.10" 0 0 1 "" 0 "" 0
+Bp4=_ 0 "EMUL_CODE" "{H:\智能车代码\2016.5.1\NRF可用添加通信\可以参加比赛}.2840.1" 0 0 1 "" 0 "" 0
+Bp5=_ 0 "EMUL_CODE" "{H:\智能车代码\2016.5.1\NRF可用添加通信\可以参加比赛}.2840.1" 0 0 1 "" 0 "" 0
+Bp6=_ 0 "EMUL_CODE" "{$PROJ_DIR$\..\..\src\app}.139.5" 0 0 1 "" 0 "" 0
+Bp7=_ 0 "EMUL_CODE" "{$PROJ_DIR$\..\..\..\..\2017.8电赛\模版 - 增量式}.300.3" 0 0 1 "" 0 "" 0
+Bp8=_ 0 "EMUL_CODE" "{$PROJ_DIR$\..\..\src\drivers\MPU6050\eMPL\inv_mpu.c}.2884.2" 0 0 1 "" 0 "" 0
+Bp9=_ 0 "EMUL_CODE" "{$PROJ_DIR$\..\..\src\drivers\MPU6050\mpu6050.c}.35.2" 0 0 1 "" 0 "" 0
+Bp10=_ 0 "EMUL_CODE" "{$PROJ_DIR$\..\..\src\app\isr.c}.558.1" 0 0 1 "" 0 "" 0
+Bp11=_ 0 "EMUL_CODE" "{$PROJ_DIR$\..\..\src\app}.3.1" 0 0 1 "" 0 "" 0
+Bp12=_ 0 "EMUL_CODE" "{$PROJ_DIR$\..\..\src\app}.18.1" 0 0 1 "" 0 "" 0
+Bp13=_ 0 "EMUL_CODE" "{$PROJ_DIR$\..\..\src\drivers\image_process\image_process.c}.2401.3" 0 0 1 "" 0 "" 0
+Bp14=_ 0 "EMUL_CODE" "{$PROJ_DIR$\..\..\..\空模版\src\cpu\crt0.s}.2.1" 0 0 1 "" 0 "" 0
+Count=15
+[Aliases]
+A0=_ "D:\MK60-shengsai\6.28改\src\drivers\image_process\image_process.c" ""
+A1=_ "D:\MK60-shengsai\6.28改\src\drivers\mcg\mcg.c" ""
+A2=_ "D:\MK60\1.12调车\车模板\src\drivers\LCD\LCD.c" ""
+A3=_ "D:\MK60\1.16调车(好用)\校赛1.20凌晨\1.16调车\车模板\src\drivers\LCD\LCD.c" ""
+A4=_ "D:\MK60\12.18调车(晚)\车模板\src\common\assert.c" ""
+A5=_ "D:\MK60\12.18调车(晚)\车模板\src\common\printf.c" ""
+A6=_ "D:\MK60\12.18调车(晚)\车模板\src\common\startup.c" ""
+A7=_ "D:\MK60\12.18调车(晚)\车模板\src\drivers\delay\delay.c" ""
+A8=_ "D:\MK60\12.18调车(晚)\车模板\src\drivers\gpio\gpio.c" ""
+A9=_ "D:\MK60\大考核\src\common\startup.c" ""
+A10=_ "D:\MK60\大考核\src\drivers\LCD\LCD.c" ""
+A11=_ "D:\MK60\空模版\src\cpu\crt0.s" ""
+A12=_ "D:\MK60\模板\src\drivers\LCD\LCD.c" ""
+A13=_ "D:\MK60\平安夜跑下来版本\车模板\src\common\printf.c" ""
+A14=_ "D:\MK60\平安夜跑下来版本\车模板\src\common\stdlib.c" ""
+A15=_ "D:\MK60\平安夜跑下来版本\车模板\src\drivers\FTM\FTM.c" ""
+A16=_ "D:\MK60\平安夜跑下来版本\车模板\src\drivers\delay\delay.c" ""
+A17=_ "D:\MK60\校赛保底档\校赛保底档\1.16调车\保底1.24\src\drivers\mcg\mcg.c" ""
+A18=_ "E:\K60开发板\2017.8电赛\模版\src\cpu\crt0.s" ""
+A19=_ "E:\我的文件\智能车文件\车 12 15\车模板\车模板\src\common\startup.c" ""
+A20=_ "E:\我的文件\智能车文件\车 12 15\车模板\车模板\src\cpu\arm_cm4.c" ""
+A21=_ "E:\我的文件\智能车文件\车 12 15\车模板\车模板\src\cpu\sysinit.c" ""
+A22=_ "E:\我的文件\智能车文件\车 12 15\车模板\车模板\src\drivers\BEEP\beep.c" ""
+A23=_ "E:\我的文件\智能车文件\车 12 15\车模板\车模板\src\drivers\LCD\LCD.c" ""
+A24=_ "E:\我的文件\智能车文件\车 12 15\车模板\车模板\src\drivers\getspeed\getspeed.c" ""
+A25=_ "E:\我的文件\智能车文件\车 12 15\车模板\车模板\src\drivers\uart\uart.c" ""
+A26=_ "E:\学习区\智能车\赛区赛\单车\A\新模版_单车六电感_环形4.26 65\src\app\main.c" ""
+A27=_ "E:\学习区\智能车\赛区赛\单车\A\新模版_单车六电感_环形4.26 65\src\app_image\Process.c" ""
+A28=_ "E:\学习区\智能车\赛区赛\单车\A\新模版_单车六电感_环形4.26 65\src\cpu\vectors.c" ""
+A29=_ "E:\学习区\智能车\赛区赛\单车\A\新模版_单车六电感_环形4.27 3.05 70\src\app_image\Process.c" ""
+A30=_ "E:\学习区\智能车\赛区赛\单车\A\新模版_单车六电感_环形\src\common\printf.c" ""
+A31=_ "E:\学习区\智能车\校赛\模版\src\cpu\crt0.s" ""
+Count=32
+SuppressDialog=0

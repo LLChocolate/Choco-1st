@@ -1,0 +1,150 @@
+//发送'n'，清空数组。
+//发送'o'，确认数字。
+发送'm',调电机pid。默认调电机PID
+发送's',调差速pid
+发送'p'，调p
+发送'i'，调i
+发送'd', 调d
+发送'a'，停车
+发送''
+
+
+int power_s16(int buttom,u8 po)
+{
+  u8 i;
+  int result=1;//0次幂为1
+  for(i=0;i<po;i++)
+  {
+    result*=buttom;
+  }
+}
+void USART2_IRQHandler()
+{
+enum
+  {
+    Motor,
+    Diff
+  }Mode;
+  u8 Debug_Mode=Motor;
+  static u8 i=0;
+  u8 j;
+  int Sum=0;
+  char c;
+  char Res_Temp[10];
+  char Res[5];
+  DisableInterrupts;
+  uart_pendstr(UART2,Res_Temp);
+  uart_sendStr(UART2,Res_Temp);
+  c=Res_Temp[0];
+  switch(c)
+  {
+//  case 'n':
+//    {
+//      for(j=0;j<i;j++)
+//      {
+//        Res[j]=0;
+//      }
+//      i=0;              //清空数组
+//      break;
+//    }
+  case 'm':
+    {
+      Debug_Mode=Motor;//调电机PID
+      break;
+    }
+  case 's':
+    {
+      Debug_Mode=Diff;//调差速PD
+      break;
+    }
+  case 'p':
+    {
+      for(j=0;j<i;j++)//调P
+      {
+        Sum+=Res[j]*power_s16(10,i-j-1);
+      }
+      if(Debug_Mode==Motor)
+      {
+        Motor_PID.P=Sum;
+      }
+      else if(Debug_Mode==Diff)
+      {
+//        Diff_PID.P=Sum;
+      }
+      break;
+    }
+  case 'i':
+    {
+      for(j=0;j<i;j++)//调I
+      {
+        Sum+=Res[j]*power_s16(10,i-j-1);
+      }
+      if(Debug_Mode==Motor)
+      {
+        Motor_PID.I=Sum;
+      }
+      else if(Debug_Mode==Diff)
+      {
+        
+      }
+      break;
+    }
+  case 'd':
+    {
+      for(j=0;j<i;j++)//调D
+      {
+        Sum+=Res[j]*power_s16(10,i-j-1);
+      }
+      if(Debug_Mode==Motor)
+      {
+        Motor_PID.D=Sum;
+      }
+      else if(Debug_Mode==Diff)
+      {
+//        Diff_PID.D=Sum;
+      }
+      break;
+    }
+  case 'a'://停车
+    {
+      Speed_goal=0;
+      Speed_goal=0;
+      FTM_PWM_Duty(MOTOR_,0);
+    }
+  default:
+  {
+    if(c>=48&&c<=57)//如果是数字，则有效
+    {
+      i=strlen(Res_Temp);
+      for(j=0;j<i;j++)
+      {
+        Res[j]=Res_Temp[j]-48;
+      }
+//      printf("\r\n%d\r\n",i);
+    }
+    
+    break;
+  }
+  }
+  if(Debug_Mode==Motor)
+  {
+    printf("\r\nMode:Motor\r\n");
+  }
+  else if(Debug_Mode==Diff)
+  {
+    printf("\r\nMode:Diff\r\n");
+  }
+  printf("\r\nRes:");
+  
+  for(j=0;j<i;j++)
+  {
+    uart_putchar(UART2,Res[j]+48);
+  }
+  printf("\r\n");
+  for(j=0;j<10;j++)
+  {
+    Res_Temp[i]=0;//清零
+  }
+  LED0=!LED0;
+  EnableInterrupts;
+}
